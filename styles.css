@@ -1,0 +1,44 @@
+a {
+    text-decoration: none;
+    color: white;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.timer {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    background-color: saddlebrown;
+}
+nav {
+    display: flex;
+    justify-content: space-around;
+}
+
+.stopwatch {
+    font-size: 50px;
+}
+
+.button {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.button:hover {
+    color: yellow;
+}
+
+ul {
+    padding-left: 0;
+}
+
+li {
+    list-style-type: none;
+    
+}
