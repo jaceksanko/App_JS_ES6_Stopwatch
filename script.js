@@ -1,3 +1,5 @@
+let arrResults = [];
+
 class Stopwatch {
     constructor(display) {
         this.running = false;
@@ -50,19 +52,26 @@ class Stopwatch {
     stop() {
         this.running = false;
         clearInterval(this.watch);
-    }
+    } 
+
 
     createLi() {
         let li = document.createElement('li');
-        let numberLi = ulList.querySelectorAll('li');
-        li.innerText = `Time ${numberLi.length}: ${this.format(this.times)}`;
+        let numberLi = arrResults.length;
+        li.innerText = `Time ${numberLi}: ${this.format(arrResults[numberLi-1])}`;
         return li
     }
+    
 
     resetBtn(ulList) {
         this.running = false;
         clearInterval(this.watch);
+        if (arrResults.length < 10) {
+            arrResults.push(this.times);
+        }
+        else (alert('Max result is 10. Reset results'))
 
+            
         ulList.appendChild(this.createLi());
        
         this.reset();
@@ -70,13 +79,10 @@ class Stopwatch {
     }
 
     resetResults() {
+        arrResults = [];
         let listResults = document.querySelectorAll('li');
-        for (let i = 1; i < listResults.length; i++) {
-            listResults[i].remove();
-        };
-        /* [ ...listResults].forEach(li => li.remove());   nie dałem urruchomić forEach od 1 indeksu tablicy dlatego dałem pętlę for*/
+        [ ...listResults].forEach(li => li.remove());
     }
-    
 }
 
 function pad0(value) {
